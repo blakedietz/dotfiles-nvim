@@ -1,0 +1,2 @@
+colorscheme solarized8_dark_high
+
