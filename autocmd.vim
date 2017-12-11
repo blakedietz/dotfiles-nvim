@@ -7,3 +7,7 @@ if has("autocmd")
   " Treat .md files as Markdown
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+augroup filetypedetect
+    au BufRead,BufNewFile *.mjs setfiletype js
+augroup END
