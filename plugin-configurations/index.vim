@@ -18,6 +18,9 @@ if (g:plugins == 1)
    Plug 'junegunn/fzf.vim'
    Plug 'elzr/vim-json'
    Plug 'nathanaelkane/vim-indent-guides'
+   " Close buffers without closing the window split
+   " https://vimawesome.com/plugin/bufkill-vim
+   Plug 'qpkorr/vim-bufkill'
  call plug#end()
 
  let sourceFileList = [

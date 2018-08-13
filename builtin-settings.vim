@@ -140,5 +140,10 @@
   " http://vim.wikia.com/wiki/Highlight_current_line
   set cursorline
 
+   :hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue ctermfg=white
+   :hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+   :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+
 " END CURSOR---------------------------------------------------------
 
