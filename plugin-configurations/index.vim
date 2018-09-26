@@ -14,7 +14,9 @@ if (g:plugins == 1)
    Plug 'tpope/vim-surround'
    Plug 'airblade/vim-gitgutter'
    Plug 'pangloss/vim-javascript'
-   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+   " fzf integration for vim 
+   " https://github.com/junegunn/fzf.vim
+   Plug '/usr/local/opt/fzf'
    Plug 'junegunn/fzf.vim'
    Plug 'elzr/vim-json'
    Plug 'nathanaelkane/vim-indent-guides'
@@ -30,6 +32,7 @@ if (g:plugins == 1)
  \   '~/.config/nvim/plugin-configurations/nerdtree.vim',
  \   '~/.config/nvim/plugin-configurations/vim-colors-solarized.vim',
  \   '~/.config/nvim/plugin-configurations/ale.vim',
+ \   '~/.config/nvim/plugin-configurations/fzf.vim',
  \ ]
 
  for sourceFile in sourceFileList
