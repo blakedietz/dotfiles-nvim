@@ -53,12 +53,6 @@
   " Enable line numbers
   set number
 
-  " Use relative line numbers
-  if exists("&relativenumber")
-    set relativenumber
-    au BufReadPost * set relativenumber
-  endif
-
   " Make comments italic
   highlight Comment cterm=italic
 
