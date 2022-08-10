@@ -15,6 +15,8 @@ No ridiculously large files. Keep files small and specific to their single purpo
 ## Dependencies 
 
 - elixir-ls
+  - You will need to install an elixir ls locally outside of managing all of the other configurations.
+    - My instance is installed at ~/.elixir-ls for reference
 - fzf
 - neovim >= 0.7.0
 - packer
