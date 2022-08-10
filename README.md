@@ -4,13 +4,19 @@
 
 The project is split into two main directories.
 - lua
-  - Contains editor specific optionn configurations
+  - Contains editor specific option configurations
 - plugin
   - Contains plugin specific setup calls and configurations
 
 ### Philosophies
 
+#### Small, well defined files
+
 No ridiculously large files. Keep files small and specific to their single purpose. There's nothing worse than reading undocumented configuration code.
+
+#### All lua all the time
+
+Configure everything with lua, prefer lua implementations of plugins at all times.
 
 ## Dependencies 
 
