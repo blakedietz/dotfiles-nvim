@@ -1,7 +1,4 @@
 require('packer').startup(function(use)
-  -- install all the plugins you need here
-
-  -- the plugin manager can manage itself
   use {'wbthomason/packer.nvim'}
 
   use {'neovim/nvim-lspconfig'}
@@ -26,19 +23,12 @@ require('packer').startup(function(use)
   -- File find behavior
   use {'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = {'nvim-lua/plenary.nvim'}}
 
-  -- Git
+  -- git
   use {'tpope/vim-fugitive'}
   use {'sodapopcan/vim-twiggy'}
 
-  use { 'TimUntersberger/neogit', requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'} }
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
-  -- Color schemes
-  use {'Mofiqul/dracula.nvim'}
+  use {'TimUntersberger/neogit', requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'}}
+  use { 'lewis6991/gitsigns.nvim' }
 
   -- File tree
   use {
@@ -49,14 +39,8 @@ require('packer').startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
-  -- using packer.nvim
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
-  use {
-      'numToStr/Comment.nvim',
-      config = function()
-          require('Comment').setup()
-      end
-  }
+  use {'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons'}
+  use { 'numToStr/Comment.nvim' }
 
   use {
     'pwntester/octo.nvim',
@@ -66,7 +50,7 @@ require('packer').startup(function(use)
       'kyazdani42/nvim-web-devicons',
     },
     config = function ()
-      require"octo".setup()
+      require'octo'.setup()
     end
   }
 
@@ -94,5 +78,9 @@ require('packer').startup(function(use)
   }
 
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'lukas-reineke/indent-blankline.nvim'}
+  use {'mfussenegger/nvim-dap'}
+  use {'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'}}
+  use {'JoosepAlviste/nvim-ts-context-commentstring'}
 end)
 

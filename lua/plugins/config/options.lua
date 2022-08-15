@@ -16,3 +16,5 @@ vim.o.lcs = "tab:> ,trail:·,eol:¬,nbsp:_"
 
 vim.o.expandtab = true
 
+vim.o.cursorline = true
+

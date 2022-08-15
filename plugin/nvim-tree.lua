@@ -1,7 +1,13 @@
+-- examples for your init.lua
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
 require("nvim-tree").setup({
   open_on_setup = true,
   open_on_setup_file = true,
-  open_on_tab = false,
+  open_on_tab = true,
   sort_by = "case_sensitive",
   view = {
     adaptive_size = true,
@@ -14,9 +20,6 @@ require("nvim-tree").setup({
   },
   renderer = {
     group_empty = true,
-  },
-  filters = {
-    dotfiles = false,
   },
   update_focused_file = {
     enable = true,
