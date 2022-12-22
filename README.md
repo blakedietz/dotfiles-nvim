@@ -14,17 +14,14 @@ The project is split into two main directories.
 
 No ridiculously large files. Keep files small and specific to their single purpose. There's nothing worse than reading undocumented configuration code.
 
-#### All lua all the time
+#### All lua, all the time
 
 Configure everything with lua, prefer lua implementations of plugins at all times.
 
 ## Dependencies 
 
-- elixir-ls
-  - You will need to install an elixir ls locally outside of managing all of the other configurations.
-    - My instance is installed at ~/.elixir-ls for reference
 - fzf
-- neovim >= 0.7.0
+- neovim >= 0.8.0
 - packer
 
 ## References
