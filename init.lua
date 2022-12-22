@@ -20,4 +20,5 @@ ensure("wbthomason", "packer.nvim")
 require("plugins.packer")
 require("plugins.neovim.config.leaders")
 require("plugins.neovim.config.options")
+require("plugins.neovim.lib.mappings")
 

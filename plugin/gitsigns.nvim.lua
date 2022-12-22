@@ -57,5 +57,4 @@ require("plugins.neovim.vscode").exclude_vscode(function()
             map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
         end
     }
-
 end)

@@ -1,8 +1,12 @@
 require('packer').startup(function(use)
     use {'wbthomason/packer.nvim'}
 
+    -- LSP
     use {'neovim/nvim-lspconfig'}
+    use {'jose-elias-alvarez/null-ls.nvim'}
 
+
+    -- Completion --
     -- cmp framework for auto-completion support
     use {'hrsh7th/nvim-cmp'}
 
@@ -23,22 +27,21 @@ require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
-    -- File find behavior
-    use {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.0',
-        requires = {'nvim-lua/plenary.nvim'}
-    }
-
     -- git
     use {'tpope/vim-fugitive'}
-    use {'sodapopcan/vim-twiggy'}
-
+    use {
+        'pwntester/octo.nvim',
+        requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim', 'kyazdani42/nvim-web-devicons'},
+        config = function()
+            require'octo'.setup()
+        end
+    }
+    use {'lewis6991/gitsigns.nvim'}
+    -- What does this do?
     use {
         'TimUntersberger/neogit',
         requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'}
     }
-    use {'lewis6991/gitsigns.nvim'}
 
     -- File tree
     use {
@@ -48,29 +51,20 @@ require('packer').startup(function(use)
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
+    -- Status tabs
     use {
         'akinsho/bufferline.nvim',
         tag = 'v2.*',
         requires = 'kyazdani42/nvim-web-devicons'
     }
+    
+    -- Commenting
     use {'numToStr/Comment.nvim'}
+    use {'JoosepAlviste/nvim-ts-context-commentstring'}
 
-    use {
-        'pwntester/octo.nvim',
-        requires = {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim', 'kyazdani42/nvim-web-devicons'},
-        config = function()
-            require'octo'.setup()
-        end
-    }
-
-    use {
-        'windwp/nvim-ts-autotag',
-        config = function()
-            require('nvim-ts-autotag').setup()
-        end
-    }
 
     use {'ggandor/leap.nvim'}
+    -- Status line
     use {
         'nvim-lualine/lualine.nvim',
         requires = {
@@ -79,10 +73,9 @@ require('packer').startup(function(use)
         }
     }
 
-    use {'jose-elias-alvarez/null-ls.nvim'}
-    use {'MunifTanjim/prettier.nvim'}
-
+    -- Better quick fix window
     use {'kevinhwang91/nvim-bqf'}
+
     -- optional
     use {
         'junegunn/fzf',
@@ -91,17 +84,41 @@ require('packer').startup(function(use)
         end
     }
 
+    -- Telesocpe and fzf integration
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make'
     }
+    -- Indentatin guides
     use {'lukas-reineke/indent-blankline.nvim'}
-    use {'mfussenegger/nvim-dap'}
-    use {
-        'rcarriga/nvim-dap-ui',
-        requires = {'mfussenegger/nvim-dap'}
-    }
-    use {'JoosepAlviste/nvim-ts-context-commentstring'}
+
+    -- Find and replace
     use {'windwp/nvim-spectre'}
+
+    -- Find
+    use({
+      "nvim-telescope/telescope.nvim",
+      requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
+      config = function()
+          require("telescope").load_extension("lazygit")
+      end,
+    })
+
+    -- Session behavior
+    use 'ethanholz/nvim-lastplace'
+    use({
+      "folke/persistence.nvim",
+      event = "BufReadPre", -- this will only start session saving when an actual file was opened
+      module = "persistence",
+      config = function()
+      end,
+    })
+
+    use({ "mhanberg/elixir.nvim", requires = { "nvim-lua/plenary.nvim" }})
+
+    use({
+      "glepnir/lspsaga.nvim",
+      branch = "main"
+    })
 end)
 

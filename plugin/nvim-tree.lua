@@ -28,4 +28,10 @@ require("plugins.neovim.vscode").exclude_vscode(function()
             ignore_list = {}
         }
     })
+
+    local map = require("plugins.neovim.lib.mappings").map
+
+    map("n", "<Leader>tt", ":NvimTreeToggle<CR>", { silent = true })
+    map("n", "<Leader>tf", ":NvimTreeFocus<CR>", { silent = true })
+    map("n", "<Leader>tr", ":NvimTreeRefresh<CR>", { silent = true })
 end)
