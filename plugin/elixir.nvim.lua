@@ -11,6 +11,14 @@ require("plugins.neovim.vscode").exclude_vscode(function()
     on_attach = function(client, bufnr)
       local map_opts = { buffer = true, noremap = true}
 
+      local map = require("plugins.neovim.lib.mappings").map
+
+      map("n", "<Leader>exmer", ":Mix ecto.reset<CR>", { silent = true })
+      map("n", "<Leader>exmdg", ":Mix deps.get<CR>", { silent = true })
+      map("n", "<Leader>exmcf", ":Mix compile --force<CR>", { silent = true })
+      map("n", "<Leader>exmt", ":Mix test", { silent = true })
+      map("n", "<Leader>exmtr", ":Mix test.reset", { silent = true })
+
       -- run the codelens under the cursor
       vim.keymap.set("n", "<space>r",  vim.lsp.codelens.run, map_opts)
       -- remove the pipe operator
