@@ -49,7 +49,7 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
-    opts = function()
+    config = function()
       -- Not actually running anything that modifies the snippet options, primarily just trying to configure
       -- snippets to be loaded
       require("luasnip.loaders.from_vscode").lazy_load({
