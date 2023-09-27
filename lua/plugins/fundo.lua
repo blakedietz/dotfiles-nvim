@@ -4,5 +4,4 @@ return {
   build = function()
     require("fundo").install()
   end,
-  opts = {},
 }

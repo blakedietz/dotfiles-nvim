@@ -1,13 +1,12 @@
 return {
   {
     "akinsho/toggleterm.nvim",
-    config = function()
-      require("toggleterm").setup({
-        size = 20,
-        direction = "horizontal",
-        auto_scroll = false,
-      })
-    end,
+    opts = {
+      size = 20,
+      direction = "horizontal",
+      auto_scroll = false,
+    },
+    config = true,
     keys = {
       {
         "<Leader>t",

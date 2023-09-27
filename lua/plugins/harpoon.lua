@@ -11,8 +11,27 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    config = function()
-      require("telescope").load_extension("harpoon")
+    event = "BufEnter",
+    opts = {
+      menu = {
+        width = vim.api.nvim_win_get_width(0) - 20,
+        height = vim.api.nvim_win_get_height(0) - 20,
+      },
+    },
+    config = function(_, options)
+      local status_ok, harpoon = pcall(require, "harpoon")
+      if not status_ok then
+        return
+      end
+
+      harpoon.setup(options)
+
+      local tele_status_ok, telescope = pcall(require, "telescope")
+      if not tele_status_ok then
+        return
+      end
+
+      telescope.load_extension("harpoon")
     end,
     keys = {
       { "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file with harpoon" },
